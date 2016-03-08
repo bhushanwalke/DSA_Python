@@ -22,5 +22,13 @@ class Deques(object):
     def size(self):
         return len(self.items)
 
+    def __str__(self):
+        return " ".join(str(x) for x in self.items)
 
+#
+# dq = Deques()
+# dq.add_rear(4)
+# print dq
+# dq.add_rear(5)
+# print dq
 
