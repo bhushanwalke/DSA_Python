@@ -1,7 +1,7 @@
 __author__ = 'bhushan'
 
 class Node(object):
-    def __init__(self, init_data = 0):
+    def __init__(self, init_data):
         self.data = init_data
         self.next = None
 

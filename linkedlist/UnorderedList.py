@@ -12,7 +12,7 @@ class UnorderedList(object):
 
     def add_node(self, item):
         temp = Node(item)
-        temp.next = Node
+        temp.set_next(self.head)
         self.head = temp
 
     def size(self):
@@ -55,6 +55,7 @@ class UnorderedList(object):
         current = self.head
         while current != None:
             print current.get_data()
+            current = current.get_next()
             #str1 += "->" + str((current.get_data()))
         #return str1
 
@@ -65,5 +66,6 @@ un.add_node(54)
 un.add_node(31)
 un.add_node(89)
 un.add_node(18)
-# un.display()
+un.display()
+print un.size()
 un.search(31)
