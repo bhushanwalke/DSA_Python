@@ -27,7 +27,7 @@ class UnorderedList(object):
         current = self.head
         found = False
         while current != None and not found:
-            if current.get_data == item:
+            if current.get_data() == item:
                 found = True
             else:
                 current = current.get_next()
@@ -68,4 +68,4 @@ un.add_node(89)
 un.add_node(18)
 un.display()
 print un.size()
-un.search(31)
+print un.search(31)
