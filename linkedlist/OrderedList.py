@@ -24,12 +24,64 @@ class OrderedList(object):
         found = False
 
         while current != None and not stop and not found:
-            if current.get_data() == item
+            if current.get_data() == item:
                 found = True
             else:
-                if current.get_data > item:
+                if current.get_data() > item:
                     stop = True
                 else:
                     current = current.get_next()
 
         return found
+
+    def add(self, item):
+        current = self.head
+        previous = None
+        temp = Node(item)
+        stop = False
+
+        while current != None and not stop:
+            if current.get_data() > item:
+                stop = True
+            else:
+                previous = current
+                current = current.get_next()
+
+        if previous == None:
+            temp.set_next(self.head)
+            self.head = temp
+        else:
+            temp.set_next(current)
+            previous.set_next(temp)
+
+    def remove(self, item):
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.get_data() == item:
+                found = True
+            else:
+                previous = current
+                current = current.get_next()
+
+        if previous == None:
+            self.head = current.get_next()
+        else:
+            previous.set_next(current.get_next())
+
+    def display(self):
+        str1 = ""
+        current = self.head
+        while current != None:
+            print current.get_data()
+            current = current.get_next()
+
+
+ol = OrderedList()
+ol.add(31)
+ol.add(1)
+ol.add(50)
+ol.display()
+ol.remove(31)
+ol.display()
