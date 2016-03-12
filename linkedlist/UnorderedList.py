@@ -45,10 +45,10 @@ class UnorderedList(object):
                 previous = current
                 current = current.get_next()
 
-            if previous == None:
-                self.head = current.get_next()
-            else:
-                previous.set_next(current.get_next())
+        if previous == None:
+            self.head = current.get_next()
+        else:
+            previous.set_next(current.get_next())
 
     def display(self):
         str1 = ""
