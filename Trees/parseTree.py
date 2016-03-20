@@ -1,6 +1,7 @@
 __author__ = 'bhushan'
 from Stack.Stack import Stack
 from Trees.treeImplementationNode import BinaryTree
+import operator
 
 def build_parse_tree(fp_exp):
     fp_list = fp_exp.split()
@@ -30,4 +31,20 @@ def build_parse_tree(fp_exp):
     return e_tree
 
 
-pt = build_parse_tree("( ( 10 + 5 ) * 3 )")
+parse_tree = build_parse_tree("( ( 10 + 5 ) * 3 )")
+
+
+def evaluate(parse_tree):
+    opers = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/':operator.truediv}
+
+    left = parse_tree.get_left_child()
+    right = parse_tree.get_right_child()
+
+    if left and right:
+        root_val = opers[parse_tree.get_root_val()]
+        return root_val(evaluate(left), evaluate(right))
+    else:
+        return parse_tree.get_root_val()
+
+
+print(evaluate(parse_tree))
