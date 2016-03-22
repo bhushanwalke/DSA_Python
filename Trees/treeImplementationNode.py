@@ -37,9 +37,18 @@ class BinaryTree:
     def set_root_val(self, new_val):
         self.value = new_val
 
+    def preorder(self):
+        print(self.value)
+        if(self.left_child):
+            self.left_child.preorder()
+        if(self.right_child):
+            self.right_child.preorder()
+
+
+
 
 r = BinaryTree('a')
 r.insert_left('b')
 r.insert_right('c')
 r.get_left_child().insert_right('d')
-print "\n"
+r.preorder()
