@@ -45,10 +45,16 @@ class BinaryTree:
             self.right_child.preorder()
 
 
+    def postorder(self):
+        if(self.left_child):
+            self.left_child.postorder()
+        if(self.right_child):
+            self.right_child.postorder()
+        print(self.value)
 
 
-r = BinaryTree('a')
-r.insert_left('b')
-r.insert_right('c')
-r.get_left_child().insert_right('d')
-r.preorder()
+
+# r = BinaryTree('a')
+# r.insert_left('b')
+# r.insert_right('c')
+# r.get_left_child().insert_right('d')
