@@ -19,6 +19,13 @@ def postorder(tree):
         print(val)
 
 
+def inorder(tree):
+    if tree!= None:
+        inorder(tree.get_left_child())
+        val = tree.get_root_val()
+        print(val)
+        inorder(tree.get_right_child())
+
 
 r = BinaryTree('a')
 r.insert_left('b')
@@ -32,4 +39,5 @@ preorder(r)
 print("\n")
 postorder(r)
 print("\n")
-r.postorder()
+#inorder(r)
+r.inorder()

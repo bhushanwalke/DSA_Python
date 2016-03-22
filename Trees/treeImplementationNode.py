@@ -52,6 +52,13 @@ class BinaryTree:
             self.right_child.postorder()
         print(self.value)
 
+    def inorder(self):
+        if(self.left_child):
+            self.left_child.inorder()
+        print(self.value)
+        if(self.right_child):
+            self.right_child.inorder()
+
 
 
 # r = BinaryTree('a')
