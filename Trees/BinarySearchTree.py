@@ -58,6 +58,8 @@ class BinarySearchTree:
     def __iter__(self):
         return self.root.__iter__()
 
+
+############# Inserting a Node in the BST ###############
     def put(self, key, val):
         if self.root:
             self._put(key, val, self.root)
@@ -76,6 +78,50 @@ class BinarySearchTree:
                 self._put(key, val, current_node.right_child)
             else:
                 current_node.right_child = TreeNode(key, val, parent=current_node)
+
+
+    def __setitem__(self, key, value):
+        self.put(key, value)
+
+
+############# End of inserting a node #################
+
+
+############# Retrive a key node from BST #############
+
+    def get(self, key):
+        if self.root:
+            res = self._get(key, self.root)
+            if res:
+                return res.payload
+            else:
+                return None
+        else:
+            return None
+
+    def _get(self, key, current_node):
+        if not current_node:
+            return None
+        elif current_node.key == key:
+            return current_node
+        elif key < current_node.key:
+            return self._get(key, current_node.left_child)
+        else:
+            return self._get(key, current_node.right_child)
+
+    def __getitem__(self, key):
+        self.get(key)
+
+    def __contains__(self, key):
+        if self._get(key, self.root):
+            return True
+        else:
+            return False
+
+############ End of retrive ############################
+
+
+########### Deleting a Node from BST ##################
 
 
 
