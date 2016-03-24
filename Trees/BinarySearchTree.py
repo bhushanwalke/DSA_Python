@@ -112,7 +112,7 @@ class BinarySearchTree:
             return self._get(key, current_node.right_child)
 
     def __getitem__(self, key):
-        self.get(key)
+        return self.get(key)
 
     def __contains__(self, key):
         if self._get(key, self.root):
