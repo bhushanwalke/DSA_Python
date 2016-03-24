@@ -3,7 +3,7 @@ __author__ = 'bhushan'
 class TreeNode:
     def __init__(self, key, val, left = None, right = None, parent = None):
         self.key = key
-        self.val = val
+        self.payload = val
         self.left_child = left
         self.right_child = right
         self.parent = parent
@@ -246,3 +246,11 @@ class BinarySearchTree:
                 for nodes in self.right_child:
                     yield nodes
 
+
+my_tree = BinarySearchTree()
+my_tree[3] = "red"
+my_tree[4] = "blue"
+my_tree[6] = "yellow"
+my_tree[2] = "at"
+print(my_tree[6])
+print(my_tree[2])
