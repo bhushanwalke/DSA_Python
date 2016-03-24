@@ -230,3 +230,19 @@ class BinarySearchTree:
                 else:
                     self.parent.right_child = self.right_child
                 self.right_child.parent = self.parent
+
+    ###################### End of delete node ########################
+
+
+    ################## Iterating the Binary tree #####################
+
+    def __iter__(self):
+        if self:
+            if self.has_left_child():
+                for nodes in self.left_child:
+                    yield nodes
+            yield self.key
+            if self.has_right_child():
+                for nodes in self.right_child:
+                    yield nodes
+
