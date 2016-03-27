@@ -1,12 +1,13 @@
 __author__ = 'bhushan'
 
 class TreeNode:
-    def __init__(self, key, val, left = None, right = None, parent = None):
+    def __init__(self, key, val, left = None, right = None, parent = None, balance_factor = 0):
         self.key = key
         self.payload = val
         self.left_child = left
         self.right_child = right
         self.parent = parent
+        self.balance_factor = balance_factor
 
 
     def has_left_child(self):
