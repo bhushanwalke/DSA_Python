@@ -3,14 +3,19 @@ __author__ = 'bhushan'
 import threading, random
 import time
 
+tLock = threading.Lock()
 
 def splitter(words, s):
+    tLock.acquire()
+    print("Thread %s acquiring the lock" % s)
     myList = words.split()
     newList = []
     while (myList):
         newList.append(myList.pop(random.randrange(0, len(myList))))
-    time.sleep(s)
+    #time.sleep(s)
     print(' '.join(newList))
+    tLock.release()
+    print("Thread %s releasing the lock" % s)
 
 
 if __name__ == '__main__':
