@@ -24,3 +24,9 @@ t = threading.Thread(name='non_daemon', target=non_daemon)
 
 d.start()
 t.start()
+
+
+###### Add following to wait for the Daemon thread to complete #########
+
+# d.join()
+# t.join()
