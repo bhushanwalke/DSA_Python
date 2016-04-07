@@ -19,16 +19,14 @@ print areacode, mainNum, lastNum
 
 
 heroregex = re.compile(r'Batman|Superman')
-<<<<<<< HEAD
-=======
+
 hero = heroregex.search('Superman VS Batman')
 print(hero.group())
->>>>>>> 71b8dc35df562592620ab0c7e4b33b87d739eedf
 
 hero1 = heroregex.search("Batman VS Superman")
 print hero1.group()
 
-<<<<<<< HEAD
+
 # hero1 = heroregex.search("Superman VS Batman")
 # print hero1.group()
 
@@ -45,7 +43,7 @@ roboregex = re.compile(r'[^aeiou ]')
 robo = roboregex.findall('Robocop eats baby food.')
 print robo
 
-xmsregex = re.compile(r'[\d]+\s\w+')
+xmsregex = re.compile(r'\d*\s*\w+')
 xms = xmsregex.findall('12 drummers, 11 pipers, 10 lords, 9 ladies, 8 maids, swans, 6 geese, 5 rings, 4 birds, 3 hens, 2 doves, 1 partridge')
 print xms
 
@@ -56,7 +54,6 @@ print begin
 endregex = re.compile(r'\d+$')
 end = endregex.findall('Hello 007')
 print end
-=======
 
 batregex = re.compile(r'Bat(man|mobile|bat)')
 bat = batregex.search('Batmobile Batbat lost a wheel')
@@ -85,4 +82,7 @@ bat = batregex.search('Batwoman')
 print(bat.group())
 bat = batregex.search('Batman')
 print(bat == None)
->>>>>>> 71b8dc35df562592620ab0c7e4b33b87d739eedf
+
+atregex = re.compile(r'.{3}\d')
+at = atregex.findall('The1 ccat in the hat sat on the flat mat.')
+print(at)
