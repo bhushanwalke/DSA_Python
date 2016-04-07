@@ -11,17 +11,45 @@ print areacode, mainNum, lastNum
 
 phoneregex1 = re.compile(r'(\(\d{3}\)) (\d{3})-(\d{4})')
 
-res1 = phoneregex1.search('My number is (415) 555-4242 415-555-4243.')
+res1 = phoneregex1.search('My number is (415) 555-4242 (415) 555-4243.')
 
 areacode, mainNum, lastNum = res1.groups()
 print areacode, mainNum, lastNum
 
 
 
-heroregex = re.compile(r'Batman | Superman')
+heroregex = re.compile(r'Batman|Superman')
+hero = heroregex.search('Superman VS Batman')
+print(hero.group())
 
-hero = heroregex.search("Superman VS Batman")
-print hero.group()
+hero1 = heroregex.search("Batman VS Superman")
+print hero1.group()
 
-# hero1 = heroregex.search("Superman VS Batman")
-# print hero1.group()
+
+batregex = re.compile(r'Bat(man|mobile|bat)')
+bat = batregex.search('Batmobile Batbat lost a wheel')
+print bat.groups()
+
+
+batregex = re.compile(r'Bat(wo)?man')
+bat = batregex.search('The Adventures of Batman')
+print bat.group()
+bat = batregex.search('The Adventures of Batwoman')
+print bat.group()
+
+
+phoneregex = re.compile(r'\(?\d{3}\)?-\d{3}-\d{4}')
+phone = phoneregex.search('My number is 415-555-4242')
+print(phone.group())
+
+batregex = re.compile(r'Bat(wo)*man')
+bat = batregex.search('The Adventures of Batman')
+print bat.group()
+bat = batregex.search('The Adventures of Batwowowoman')
+print bat.group()
+
+batregex = re.compile(r'Bat(wo)+man')
+bat = batregex.search('Batwoman')
+print(bat.group())
+bat = batregex.search('Batman')
+print(bat == None)
