@@ -2,6 +2,7 @@
 Regular expressions without re library
 '''
 
+
 def isPhoneNumber(text):
     if len(text) != 12:
         return False
