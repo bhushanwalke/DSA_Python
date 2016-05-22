@@ -59,6 +59,25 @@ class UnorderedList(object):
             #str1 += "->" + str((current.get_data()))
         #return str1
 
+    def reverse(self):
+        self.head = self.reversehelper(self.head)
+        self.display()
+
+    def reversehelper(self, head):
+        if head is None or head.next is None:
+            return head
+
+        tail = head.next
+        print "head", head
+        print "tail", tail
+        #print "head.next", head.next
+        head.next = None
+        newhead = self.reversehelper(tail)
+        tail.next = head
+
+        return newhead
+
+
 
 un = UnorderedList()
 un.add_node(24)
@@ -67,5 +86,7 @@ un.add_node(31)
 un.add_node(89)
 un.add_node(18)
 un.display()
-print un.size()
-print un.search(31)
+# print un.size()
+# print un.search(31)
+print "reversed"
+un.reverse()

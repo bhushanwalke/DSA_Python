@@ -77,6 +77,17 @@ class OrderedList(object):
             print current.get_data()
             current = current.get_next()
 
+    def Reverse(self, head):
+        self.head = head
+        if self.head.get_next() is None or self.head is None:
+            return self.head
+        tail = self.head.get_next()
+        self.head.set_next(None)
+        newhead = self.Reverse(tail)
+        tail.set_next(None)
+
+        return newhead
+
 
 ol = OrderedList()
 ol.add(31)
@@ -85,3 +96,6 @@ ol.add(50)
 ol.display()
 ol.remove(31)
 ol.display()
+a = ol.Reverse(ol.head)
+a.display()
+

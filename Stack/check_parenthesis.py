@@ -31,7 +31,7 @@ def check_paren(symbols):
         return False
 
 
-# print check_paren("((({[]})))")
-# print check_paren("((()")
-# print check_paren("((()))(")
+print check_paren("((({[]})))")
+print check_paren("((()")
+print check_paren("((()))(")
 

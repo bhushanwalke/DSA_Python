@@ -34,5 +34,5 @@ def infix_to_post(infix_exp):
 
 
 
-print infix_to_post("A * B + C * D")
+# print infix_to_post("A * B + C * D")
 print infix_to_post("( A + B ) * ( C + D )")
