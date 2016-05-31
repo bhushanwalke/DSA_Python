@@ -26,6 +26,6 @@ q.enqueue(4)
 q.enqueue(6)
 q.enqueue(1)
 q.enqueue('asd')
-print q
+print "\n", q
 q.dequeue()
-print q
+print "\n", q

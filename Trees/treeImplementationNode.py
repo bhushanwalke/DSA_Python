@@ -60,7 +60,6 @@ class BinaryTree:
             self.right_child.inorder()
 
 
-
 # r = BinaryTree('a')
 # r.insert_left('b')
 # r.insert_right('c')
