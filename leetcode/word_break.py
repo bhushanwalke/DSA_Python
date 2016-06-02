@@ -13,7 +13,6 @@ def wordBreak(s, wordDict):
 
     for i in range(1, n+1):
         for j in range(i):
-            a = s[j:i]
             if dp[j] and s[j:i] in wordDict:
                 dp[i] = True
                 break
@@ -21,6 +20,6 @@ def wordBreak(s, wordDict):
 
 
 dict = ["leet", "code"]
-s = "codeleet"
+s = "leetcode"
 
 print wordBreak(s, dict)
