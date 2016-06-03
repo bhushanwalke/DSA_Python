@@ -37,3 +37,57 @@
 # pylab.show()
 
 
+# def ladderLength(beginWord, endWord, wordList):
+#     """
+#     :type beginWord: str
+#     :type endWord: str
+#     :type wordList: Set[str]
+#     :rtype: int
+#     """
+#     q = [(beginWord, 1)]
+#     res = []
+#     visited = set()
+#
+#     while q:
+#         word, dist = q.pop()
+#         if word == endWord:
+#             res.append(word)
+#             return res, dist + 1
+#         for i in range(len(word)):
+#             for l in 'abcdefghijklmnopqrstuvwxyz':
+#                 word1 = word[:i] + l + word[i+1:]
+#                 if word1 not in visited and word1 in wordList:
+#                     q.insert(0, (word1, dist+1))
+#                     visited.add(word1)
+import string
+
+
+def ladderLength(beginWord, endWord, wordDict):
+    front, back = set([beginWord]), set([endWord])
+    length = 2
+    width = len(beginWord)
+    charSet = list(string.lowercase)
+    wordDict.discard(beginWord)
+    wordDict.discard(endWord)
+    while front:
+        newFront = set()
+        for phrase in front:
+            for i in xrange(width):
+                for c in charSet:
+                    nw = phrase[:i] + c + phrase[i + 1:]
+                    if nw in back:
+                        return length
+                    if nw in wordDict:
+                        newFront.add(nw)
+        front = newFront
+        if len(front) > len(back):
+            front, back = back, front
+        wordDict -= front
+        length += 1
+    return 0
+
+beginWord = "hit"
+endWord = "cog"
+wordList = ["hot","dot","dog","lot","log", "cog"]
+
+print ladderLength(beginWord, endWord, wordList)
