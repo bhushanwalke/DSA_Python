@@ -248,10 +248,9 @@ class BinarySearchTree:
                     yield nodes
 
 
-# my_tree = BinarySearchTree()
-# my_tree[3] = "red"
-# my_tree[4] = "blue"
-# my_tree[6] = "yellow"
-# my_tree[2] = "at"
-# print(my_tree[6])
-# print(my_tree[2])
+my_tree = BinarySearchTree()
+my_tree[3] = "red"
+my_tree[4] = "blue"
+my_tree[6] = "yellow"
+my_tree[2] = "at"
+

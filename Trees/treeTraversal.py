@@ -1,5 +1,7 @@
 __author__ = 'bhushan'
 
+import sys
+
 from treeImplementationNode import BinaryTree
 
 def preorder(tree):
@@ -25,6 +27,17 @@ def inorder(tree):
         val = tree.get_root_val()
         print(val)
         inorder(tree.get_right_child())
+
+
+def isBst(root, prev):
+    if not root:
+        return True
+    if not isBst(root.get_left_child(), prev):
+        return False
+    if prev != None and root.get_root_val() <= prev:
+        return False
+    prev = root.get_root_val()
+    return isBst(root.get_right_child(), prev)
 
 maxValue = None
 def findMax(tree):
@@ -68,22 +81,25 @@ def size(tree):
     return size(tree.get_left_child()) + size(tree.get_right_child()) + 1
 
 
-r = BinaryTree('a')
-r.insert_left('b')
-r.insert_right('c')
-r.get_left_child().insert_left('d')
-r.get_left_child().insert_right('e')
-r.get_right_child().insert_left('f')
-r.get_right_child().insert_right('g')
+r = BinaryTree(4)
+r.insert_left(1)
+r.insert_right(3)
+# r.insert_left('b')
+# r.insert_right('c')
+# r.get_left_child().insert_left('d')
+# r.get_left_child().insert_right('e')
+# r.get_right_child().insert_left('f')
+# r.get_right_child().insert_right('g')
 #
 # preorder(r)
 # print("\n")
 # postorder(r)
 # print("\n")
-# #inorder(r)
+inorder(r)
 # r.inorder()
+print isBst(r, -sys.maxint)
 
 # print findMax(r)
-print findData(r, 'e')
-print findDataQueue(r, 'q')
-print size(r)
+# print findData(r, 'e')
+# print findDataQueue(r, 'q')
+# print size(r)
